@@ -6,7 +6,6 @@ Current tasks and priorities.
 
 ## 🔥 High Priority
 
-- [ ] Set up web search API key (Brave) for native tool
 - [ ] Test GLM-5 reasoning capabilities
 - [ ] Enable GitHub Pages for this repo
 - [ ] Create more automation scripts
@@ -15,7 +14,6 @@ Current tasks and priorities.
 
 ## 📋 Medium Priority
 
-- [ ] Set up cloud VM for persistent browser access
 - [ ] Create note templates
 - [ ] Add graph view for notes
 - [ ] Configure auto-backup to GitHub
@@ -46,8 +44,8 @@ Current tasks and priorities.
 
 ```
 Completed: 6 tasks
-Remaining: 8 tasks
-Progress:  43% ████████░░░░░░░░░░░
+Remaining: 6 tasks
+Progress:  50% ██████████░░░░░░░░░░
 ```
 
 ---
