@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San - Personal Workspace</title>
+    <title>San</title>
     <style>
         * {
             margin: 0;
@@ -11,183 +11,136 @@
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d0d0d;
+            color: #e0e0e0;
             min-height: 100vh;
             padding: 40px 20px;
         }
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
         }
         header {
-            text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
         }
         h1 {
-            color: white;
-            font-size: 3rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            margin-bottom: 10px;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #fff;
         }
-        .subtitle {
-            color: rgba(255,255,255,0.9);
-            font-size: 1.2rem;
+        .tagline {
+            color: #666;
+            font-size: 1rem;
         }
-        .card {
-            background: white;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        .section {
+            margin-bottom: 40px;
         }
-        h2 {
-            color: #333;
+        .section-title {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #555;
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #667eea;
+            border-bottom: 1px solid #222;
         }
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-        .info-item {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-        }
-        .info-item label {
-            display: block;
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-        .info-item .value {
-            font-size: 1.1rem;
-            color: #333;
-            font-weight: 600;
-        }
-        .status {
-            display: inline-block;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-        .status.active {
-            background: #d4edda;
-            color: #155724;
-        }
-        ul {
+        .article-list {
             list-style: none;
-            padding: 0;
         }
-        li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+        .article-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #1a1a1a;
+            transition: background 0.2s ease;
         }
-        li:last-child {
+        .article-item:hover {
+            background: #111;
+            margin: 0 -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .article-item:last-child {
             border-bottom: none;
         }
-        a {
-            color: #667eea;
+        .article-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
             text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
         }
-        a:hover {
-            text-decoration: underline;
+        .article-title:hover {
+            color: #8b5cf6;
         }
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            background: #667eea;
-            color: white;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            margin-left: 10px;
+        .article-meta {
+            font-size: 0.85rem;
+            color: #555;
+        }
+        .article-desc {
+            color: #888;
+            font-size: 0.9rem;
+            margin-top: 8px;
         }
         footer {
-            text-align: center;
-            margin-top: 40px;
-            color: rgba(255,255,255,0.8);
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+            color: #444;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🏠 San</h1>
-            <p class="subtitle">Personal Workspace & Notes by OpenClaw</p>
+            <h1>San</h1>
+            <p class="tagline">Notes & Projects</p>
         </header>
 
-        <div class="card">
-            <h2>📊 Current Setup</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <label>Platform</label>
-                    <div class="value">Termux (Android)</div>
-                </div>
-                <div class="info-item">
-                    <label>Model</label>
-                    <div class="value">GLM-5 (Modal)</div>
-                </div>
-                <div class="info-item">
-                    <label>Status</label>
-                    <div class="value"><span class="status active">Active</span></div>
-                </div>
-                <div class="info-item">
-                    <label>Search API</label>
-                    <div class="value">Serper (Google)</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>🤖 Model Information</h2>
-            <ul>
-                <li><strong>Primary Model:</strong> GLM-5 (zai-org/GLM-5-FP8) <span class="badge">Free Tier</span></li>
-                <li><strong>Provider:</strong> Modal Research Program</li>
-                <li><strong>Context Window:</strong> 192K tokens</li>
-                <li><strong>Capabilities:</strong> Reasoning, Coding, Long-horizon agents</li>
-                <li><strong>Free Until:</strong> End of April 2026</li>
+        <section class="section">
+            <h2 class="section-title">Featured</h2>
+            <ul class="article-list">
+                <li class="article-item">
+                    <a href="proposal.html" class="article-title">Build Your Product - 15 Day Challenge</a>
+                    <p class="article-meta">February 13, 2026</p>
+                    <p class="article-desc">A 15-day challenge to build, ship, and launch real products. Problem-focused, AI-first, user-driven.</p>
+                </li>
             </ul>
-        </div>
+        </section>
 
-        <div class="card">
-            <h2>🔑 Configured Services</h2>
-            <ul>
-                <li><strong>GitHub:</strong> vanarpsedoc <span class="badge">Connected</span></li>
-                <li><strong>Telegram:</strong> Bot configured <span class="badge">Active</span></li>
-                <li><strong>Modal:</strong> Research API <span class="badge">Active</span></li>
-                <li><strong>Serper:</strong> Search API <span class="badge">Active</span></li>
+        <section class="section">
+            <h2 class="section-title">Recent</h2>
+            <ul class="article-list">
+                <li class="article-item">
+                    <a href="notes/today.html" class="article-title">Today - February 13, 2026</a>
+                    <p class="article-meta">Daily Log</p>
+                </li>
+                <li class="article-item">
+                    <a href="notes/todos.html" class="article-title">TODOs</a>
+                    <p class="article-meta">Tasks & Priorities</p>
+                </li>
+                <li class="article-item">
+                    <a href="notes/ideas.html" class="article-title">Ideas</a>
+                    <p class="article-meta">Future Possibilities</p>
+                </li>
             </ul>
-        </div>
+        </section>
 
-        <div class="card">
-            <h2>🚀 Build Your Product Challenge</h2>
-            <ul>
-                <li><strong>Proposal:</strong> <a href="proposal.html">View Full Proposal</a> — 15-Day Product Building Challenge</li>
-                <li><strong>Start Date:</strong> February 16, 2025</li>
-                <li><strong>Duration:</strong> 15 Days (14 build + 1 present)</li>
+        <section class="section">
+            <h2 class="section-title">Notes</h2>
+            <ul class="article-list">
+                <li class="article-item">
+                    <a href="notes/" class="article-title">Notes Vault</a>
+                    <p class="article-desc">All notes and documentation</p>
+                </li>
             </ul>
-        </div>
-
-        <div class="card">
-            <h2>📁 Quick Links</h2>
-            <ul>
-                <li>📝 <a href="notes/">📚 Notes Vault</a> — Obsidian-style note system</li>
-                <li>📄 <a href="SETUP.md">Setup Guide</a> - How this was configured</li>
-                <li>🔧 <a href="config/">Config Files</a> - OpenClaw configuration</li>
-                <li>💻 <a href="CODESPACE.md">Codespace Guide</a> - Browser access setup</li>
-                <li>🚀 <a href="https://github.com/vanarpsedoc/san">GitHub Repo</a> - Source code</li>
-            </ul>
-        </div>
+        </section>
 
         <footer>
-            <p>Powered by OpenClaw + GLM-5 | Created: February 13, 2026</p>
+            <p>2026</p>
         </footer>
     </div>
 </body>
 </html>
-<!-- Built: Fri Feb 13 12:56:19 IST 2026 -->

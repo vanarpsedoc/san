@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODOs</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d0d0d;
+            color: #e0e0e0;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; margin: 0 auto; }
+        a { color: #8b5cf6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back { margin-bottom: 30px; font-size: 0.9rem; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .meta { color: #555; margin-bottom: 30px; }
+        h2 { font-size: 1.3rem; margin: 30px 0 15px; color: #fff; }
+        ul { margin: 15px 0; padding-left: 25px; }
+        li { margin-bottom: 10px; line-height: 1.6; }
+        .done { color: #4ade80; }
+        .progress { background: #1a1a1a; padding: 15px; border-radius: 8px; margin-top: 30px; }
+        .bar { background: #222; height: 8px; border-radius: 4px; margin-top: 10px; }
+        .bar-fill { background: #8b5cf6; height: 100%; border-radius: 4px; width: 54%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="back"><a href="../index.html">Back</a></p>
+        <h1>TODOs</h1>
+        <p class="meta">Tasks & Priorities</p>
+
+        <h2>High Priority</h2>
+        <ul>
+            <li>Test GLM-5 reasoning capabilities</li>
+            <li>Enable GitHub Pages for this repo</li>
+            <li>Create more automation scripts</li>
+        </ul>
+
+        <h2>Medium Priority</h2>
+        <ul>
+            <li>Create note templates</li>
+            <li>Add graph view for notes</li>
+            <li>Configure auto-backup to GitHub</li>
+        </ul>
+
+        <h2>Completed</h2>
+        <ul>
+            <li class="done">Switch to Modal GLM-5 as primary model</li>
+            <li class="done">Set up Serper search script</li>
+            <li class="done">Create GitHub repository</li>
+            <li class="done">Set up GitHub Codespaces for browser</li>
+            <li class="done">Install Playwright in Codespaces</li>
+            <li class="done">Create Obsidian-style notes system</li>
+            <li class="done">Plan Build Your Product challenge</li>
+        </ul>
+
+        <div class="progress">
+            <strong>Progress: 54%</strong>
+            <div class="bar"><div class="bar-fill"></div></div>
+        </div>
+    </div>
+</body>
+</html>
