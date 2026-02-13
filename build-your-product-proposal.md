@@ -5,26 +5,25 @@
 
 ---
 
-## 📌 Executive Summary
+## Executive Summary
 
 **Build Your Product** is a 15-day challenge designed to help students move beyond tutorials and ship real products. With the rise of AI coding assistants, the barrier to building has shifted from technical skills to problem-finding and user validation. This challenge embraces that shift.
 
 | Parameter | Details |
 |-----------|---------|
-| **Duration** | 15 Days |
-| **Format** | 14 days building + 1 day presenting |
-| **Start Date** | February 16, 2025 |
-| **Effort Model** | Organizers: 20% | Participants: 120% |
-| **Philosophy** | Ship over tech stack. Use AI freely. Focus on users. |
+| Duration | 15 Days |
+| Format | 14 days building + 1 day presenting |
+| Start Date | February 16, 2025 |
+| Philosophy | Ship over tech stack. Use AI freely. Focus on users. |
 
 ---
 
-## 🎯 The Problem
+## The Problem
 
 Students today face a paradox:
-- **More tools than ever** — AI, no-code, cloud platforms
-- **Less shipping than ever** — Tutorial hell, analysis paralysis
-- **Outdated focus** — Obsessing over languages instead of users
+- More tools than ever — AI, no-code, cloud platforms
+- Less shipping than ever — Tutorial hell, analysis paralysis
+- Outdated focus — Obsessing over languages instead of users
 
 Traditional hackathons reinforce this:
 - 24-48 hours (too short to validate)
@@ -34,9 +33,9 @@ Traditional hackathons reinforce this:
 
 ---
 
-## 💡 The Solution
+## The Solution
 
-A **15-day challenge** that mirrors real product development:
+A 15-day challenge that mirrors real product development:
 
 ```
 Week 1: Find problem → Build MVP → Get first users
@@ -57,7 +56,7 @@ Day 15: Present to community
 
 ---
 
-## 📅 Timeline
+## Timeline
 
 ### Pre-Launch: February 10-15
 
@@ -80,7 +79,7 @@ Day 15: Present to community
 
 ---
 
-## 🏗️ Challenge Structure
+## Challenge Structure
 
 ### Week 1: Build Phase (Feb 16-22)
 
@@ -108,22 +107,22 @@ Day 15: Present to community
 
 ### Day 15: Presentation (Mar 1)
 
-- **Format:** 5-minute pitch + 3-minute Q&A
-- **Audience:** Tech club members, judges, invited guests
-- **Showcase:** Working demo, user metrics, learnings
+- Format: 5-minute pitch + 3-minute Q&A
+- Audience: Tech club members, judges, invited guests
+- Showcase: Working demo, user metrics, learnings
 
 ---
 
-## 👥 Participant Journey
+## Participant Journey
 
 ### What Participants Do
 
-1. **Find a real problem** — Something they or people they know face
-2. **Build solution** — Use AI freely (Claude, GPT, Copilot, Cursor)
-3. **Create content** — Document journey on social media
-4. **Get users** — Find beta testers, collect feedback
-5. **Iterate** — Improve based on real user feedback
-6. **Launch** — Deploy publicly, optionally monetize
+1. Find a real problem — Something they or people they know face
+2. Build solution — Use AI freely (Claude, GPT, Copilot, Cursor)
+3. Create content — Document journey on social media
+4. Get users — Find beta testers, collect feedback
+5. Iterate — Improve based on real user feedback
+6. Launch — Deploy publicly, optionally monetize
 
 ### What They Build
 
@@ -137,28 +136,28 @@ Any digital product:
 
 ### Success Levels
 
-| Level | Achievement | Reward |
-|-------|-------------|--------|
-| 🥉 Bronze | Working MVP | Certificate |
-| 🥈 Silver | MVP + 50 users | Featured post |
-| 🥇 Gold | MVP + 100 users + domain | Prize + Certificate |
-| 💎 Diamond | All above + payments | Grand Prize |
+| Level | Achievement |
+|-------|-------------|
+| Bronze | Working MVP |
+| Silver | MVP + 50 users |
+| Gold | MVP + 100 users + custom domain |
+| Diamond | All above + payments |
 
 ---
 
-## 📢 Social Media Integration
+## Social Media Integration
 
 ### Why It Matters
 
-- **For Tech Club:** Increased visibility, recruitment
-- **For Participants:** Accountability, portfolio building
-- **For College:** Innovation culture showcase
+- For Tech Club: Increased visibility, recruitment
+- For Participants: Accountability, portfolio building
+- For College: Innovation culture showcase
 
 ### Requirements
 
 - Minimum 5 posts during challenge
-- Tag `@TechClub` in all posts
-- Use hashtag `#BuildYourProduct`
+- Tag @TechClub in all posts
+- Use hashtag #BuildYourProduct
 - Share progress, learnings, failures
 
 ### Content Calendar
@@ -174,18 +173,18 @@ Any digital product:
 
 ---
 
-## 🛠️ Resources Provided
+## Resources Provided
 
 ### For Participants
 
 | Resource | Details |
 |----------|---------|
-| **AI Tools Guide** | Claude, GPT-4, Cursor, Copilot setup |
-| **No-Code Options** | Bubble, FlutterFlow, Softr tutorials |
-| **Deployment Guide** | Vercel, Netlify, Render walkthroughs |
-| **User Research Template** | Interview questions, survey templates |
-| **Pitch Deck Template** | 5-slide structure for presentation |
-| **Community Support** | Discord channel for Q&A |
+| AI Tools Guide | Claude, GPT-4, Cursor, Copilot setup |
+| No-Code Options | Bubble, FlutterFlow, Softr tutorials |
+| Deployment Guide | Vercel, Netlify, Render walkthroughs |
+| User Research Template | Interview questions, survey templates |
+| Pitch Deck Template | 5-slide structure for presentation |
+| Community Support | Discord channel for Q&A |
 
 ### Recommended Tech Stack
 
@@ -199,7 +198,7 @@ Any digital product:
 
 ---
 
-## 📋 Organizer Responsibilities (20% Effort)
+## Organizer Responsibilities
 
 ### Pre-Challenge
 - Get petition approved
@@ -208,10 +207,10 @@ Any digital product:
 - Create Discord/WhatsApp group
 
 ### During Challenge
-- Daily check-in message (5 min)
-- Share participant posts on club handle (5 min)
+- Daily check-in message
+- Share participant posts on club handle
 - Answer queries on Discord
-- Weekend sync call (30 min, optional)
+- Weekend sync call (optional)
 
 ### Post-Challenge
 - Organize presentation day
@@ -221,7 +220,7 @@ Any digital product:
 
 ---
 
-## 📊 Success Metrics
+## Success Metrics
 
 ### For Participants
 
@@ -243,15 +242,15 @@ Any digital product:
 
 ---
 
-## 🏆 Prize Categories
+## Prize Categories
 
 | Category | Criteria |
 |----------|----------|
-| **Best Product** | Most polished, useful product |
-| **Most Users** | Highest validated user count |
-| **Best Social Presence** | Most engaging content |
-| **Best Iteration** | Most improved from feedback |
-| **People's Choice** | Community vote winner |
+| Best Product | Most polished, useful product |
+| Most Users | Highest validated user count |
+| Best Social Presence | Most engaging content |
+| Best Iteration | Most improved from feedback |
+| People's Choice | Community vote winner |
 
 ### Rewards
 - Certificates for all completers
@@ -261,135 +260,61 @@ Any digital product:
 
 ---
 
-## 💰 Budget Requirements
-
-| Item | Cost | Notes |
-|------|------|-------|
-| Domain credits | ₹500-1000 | Optional for participants |
-| Swag/Prizes | ₹2000-5000 | If sponsored |
-| Certificates | ₹0 | Digital |
-| Venue (presentation) | ₹0 | College classroom |
-| **Total** | ₹2500-6000 | Minimal budget |
-
-*Note: Most items can be sponsored by companies or covered by participant fees (₹50-100 optional)*
-
----
-
-## 📝 Registration Form Fields
-
-```
-1. Name
-2. Email
-3. Phone Number
-4. College/Department
-5. Year of Study
-6. Team Members (if any, max 4)
-7. Product Idea (brief, optional)
-8. Experience Level (Beginner/Intermediate/Advanced)
-9. Discord/Telegram Handle
-10. How did you hear about this?
-```
-
----
-
-## 📅 Milestone Checklist
-
-### February 10-11: Petition
-- [ ] Draft proposal (this document)
-- [ ] Get faculty advisor approval
-- [ ] Submit to administration
-- [ ] Follow up daily
-
-### February 12-14: Announcements
-- [ ] Design poster
-- [ ] Write announcement copy
-- [ ] Create Google Form
-- [ ] Set up Discord server
-- [ ] Post on all channels
-
-### February 15: Final Prep
-- [ ] Close registrations
-- [ ] Send welcome emails
-- [ ] Prepare Day 1 content
-- [ ] Test all links
-
-### February 16: Launch
-- [ ] Send kickoff message
-- [ ] Share Day 1 tasks
-- [ ] Begin daily check-ins
-
----
-
-## 🤝 Sponsorship Opportunities
-
-Potential sponsors for prizes/credits:
-- **Vercel** — Free Pro credits
-- **Stripe** — Free processing credits
-- **Notion** — Free team plans
-- **Local startups** — Swag, mentorship
-- **College incubator** — Prize money
-
----
-
-## ❓ FAQ
+## FAQ
 
 **Q: Is this a hackathon?**
+
 A: No. It's longer (15 days), focuses on users not tech, and ends with real products, not just demos.
 
 **Q: Do participants need coding experience?**
+
 A: No. AI tools can generate code. No-code platforms are allowed.
 
 **Q: Can teams participate?**
+
 A: Yes, teams of 1-4 people.
 
 **Q: What if someone drops out?**
+
 A: They can rejoin anytime. The challenge is self-paced.
 
 **Q: Is there an entry fee?**
-A: Optional ₹50-100 for certificates/prizes.
+
+A: No entry fee. Participants handle their own costs (domains, hosting, etc.)
 
 **Q: What if petition isn't approved?**
+
 A: Shift dates by one week and retry.
 
 ---
 
-## 📞 Contact
-
-For questions or clarifications:
-- **Email:** techclub@college.edu
-- **Discord:** [Server Link]
-- **Instagram:** @TechClub
-- **LinkedIn:** Tech Club
-
----
-
-## 📎 Appendix: Sample Announcement
+## Sample Announcement
 
 ```
-🚀 BUILD YOUR PRODUCT — 15 Day Challenge
+BUILD YOUR PRODUCT — 15 Day Challenge
 
 Ever wanted to build something real? 
 Not a tutorial project. Not a todo app.
 YOUR product. YOUR users. REAL problem.
 
-📅 Starts: February 16
-⏰ Duration: 15 days
-🎯 Goal: Ship a working product
+Starts: February 16
+Duration: 15 days
+Goal: Ship a working product
 
 What you'll do:
-✅ Find a real problem
-✅ Build with AI (no tech stack barriers)
-✅ Get real users (beta testing)
-✅ Launch publicly
+- Find a real problem
+- Build with AI (no tech stack barriers)
+- Get real users (beta testing)
+- Launch publicly
 
 Best part? AI does the heavy lifting.
 You focus on finding problems and users.
 
-🏆 Prizes for:
-• Best Product
-• Most Users
-• Best Social Presence
-• People's Choice
+Prizes for:
+- Best Product
+- Most Users
+- Best Social Presence
+- People's Choice
 
 Register now: [LINK]
 
@@ -398,22 +323,17 @@ Register now: [LINK]
 
 ---
 
-## ✅ Request for Approval
+## Request for Approval
 
 We request the Tech Club to:
 
-1. **Approve this initiative** for February 16 - March 1
-2. **Submit petition** to college administration
-3. **Allocate budget** of ₹3000-5000 (if available)
-4. **Assign 2-3 organizers** for daily coordination
-5. **Promote via club channels** (Instagram, LinkedIn, Discord)
+1. Approve this initiative for February 16 - March 1
+2. Submit petition to college administration
+3. Assign organizers for daily coordination
+4. Promote via club channels (Instagram, LinkedIn, Discord)
 
 ---
 
-**Submitted by:** [Your Name]  
+**Submitted by:** Pranav  
 **Date:** February 13, 2026  
 **For:** Tech Club Executive Committee
-
----
-
-*This document is ready to be shared with the tech club for approval.*
