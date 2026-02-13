@@ -1,802 +1,146 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Notes</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Notes</title>
     <style>
-        :root {
-            --bg-primary: #1e1e1e;
-            --bg-secondary: #252525;
-            --bg-tertiary: #2d2d2d;
-            --bg-hover: #363636;
-            --text-primary: #dcddde;
-            --text-secondary: #a3a3a3;
-            --text-muted: #72767d;
-            --accent: #7c3aed;
-            --accent-light: #8b5cf6;
-            --accent-dark: #6d28d9;
-            --accent-glow: rgba(124, 58, 237, 0.3);
-            --border: #3e3e3e;
-            --scrollbar: #4a4a4a;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --error: #ef4444;
-            --code-bg: #1a1a2e;
-            --blockquote-border: #7c3aed;
-        }
-
-        [data-theme="light"] {
-            --bg-primary: #ffffff;
-            --bg-secondary: #f7f7f8;
-            --bg-tertiary: #efefef;
-            --bg-hover: #e5e5e5;
-            --text-primary: #1f2937;
-            --text-secondary: #4b5563;
-            --text-muted: #9ca3af;
-            --border: #e5e7eb;
-            --scrollbar: #d1d5db;
-            --code-bg: #f3f4f6;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        ::-webkit-scrollbar {
-            width: 8px;
-            height: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-secondary);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--scrollbar);
-            border-radius: 4px;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.7;
-            display: flex;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d0d0d;
+            color: #e0e0e0;
             min-height: 100vh;
+            padding: 40px 20px;
         }
-
-        /* Sidebar */
-        .sidebar {
-            width: 280px;
-            background: var(--bg-secondary);
-            border-right: 1px solid var(--border);
-            display: flex;
-            flex-direction: column;
-            position: fixed;
-            height: 100vh;
-            overflow: hidden;
-            z-index: 100;
-            transition: transform 0.3s ease;
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .vault-name {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--accent-light);
-        }
-
-        .vault-name i {
-            font-size: 1.4rem;
-        }
-
-        .search-box {
-            margin: 15px 0 0 0;
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 10px 12px 10px 36px;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            color: var(--text-primary);
-            font-size: 0.9rem;
-            transition: all 0.2s ease;
-        }
-
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 3px var(--accent-glow);
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-        }
-
-        .sidebar-nav {
-            flex: 1;
-            overflow-y: auto;
-            padding: 15px 0;
-        }
-
-        .nav-section {
-            margin-bottom: 20px;
-        }
-
-        .nav-section-title {
-            padding: 8px 20px;
+        .container { max-width: 800px; margin: 0 auto; }
+        a { color: #8b5cf6; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .back { margin-bottom: 30px; font-size: 0.9rem; }
+        h1 { font-size: 2rem; margin-bottom: 10px; }
+        .tagline { color: #555; margin-bottom: 40px; }
+        .section { margin-bottom: 50px; }
+        .section-title {
             font-size: 0.75rem;
-            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-muted);
-        }
-
-        .nav-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px 20px;
-            color: var(--text-secondary);
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.15s ease;
-            border-left: 3px solid transparent;
-        }
-
-        .nav-item:hover {
-            background: var(--bg-hover);
-            color: var(--text-primary);
-        }
-
-        .nav-item.active {
-            background: var(--bg-hover);
-            color: var(--accent-light);
-            border-left-color: var(--accent);
-        }
-
-        .nav-item i {
-            width: 18px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .nav-item .note-title {
-            flex: 1;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .nav-item .note-date {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .sidebar-footer {
-            padding: 15px 20px;
-            border-top: 1px solid var(--border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .theme-toggle {
-            background: var(--bg-tertiary);
-            border: none;
-            padding: 8px 12px;
-            border-radius: 8px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .theme-toggle:hover {
-            background: var(--bg-hover);
-            color: var(--accent-light);
-        }
-
-        /* Main Content */
-        .main-content {
-            flex: 1;
-            margin-left: 280px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .topbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 30px;
-            border-bottom: 1px solid var(--border);
-            background: var(--bg-secondary);
-        }
-
-        .breadcrumb {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .breadcrumb a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-
-        .breadcrumb a:hover {
-            color: var(--accent-light);
-        }
-
-        .topbar-actions {
-            display: flex;
-            gap: 10px;
-        }
-
-        .action-btn {
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 8px;
-            color: var(--text-secondary);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.85rem;
-            transition: all 0.2s ease;
-        }
-
-        .action-btn:hover {
-            background: var(--bg-hover);
-            color: var(--text-primary);
-            border-color: var(--accent);
-        }
-
-        .action-btn.primary {
-            background: var(--accent);
-            border-color: var(--accent);
-            color: white;
-        }
-
-        .action-btn.primary:hover {
-            background: var(--accent-light);
-        }
-
-        /* Note Content */
-        .note-container {
-            flex: 1;
-            overflow-y: auto;
-            padding: 40px;
-        }
-
-        .note-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .note-header {
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .note-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            background: linear-gradient(135deg, var(--text-primary), var(--accent-light));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .note-meta {
-            display: flex;
-            gap: 20px;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        .note-meta span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .note-tags {
-            display: flex;
-            gap: 8px;
-            margin-top: 15px;
-        }
-
-        .tag {
-            background: var(--accent-glow);
-            color: var(--accent-light);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Markdown Content Styles */
-        .note-content {
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-
-        .note-content h1, .note-content h2, .note-content h3, 
-        .note-content h4, .note-content h5, .note-content h6 {
-            margin-top: 1.5em;
-            margin-bottom: 0.5em;
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .note-content h1 { font-size: 2rem; border-bottom: 2px solid var(--border); padding-bottom: 10px; }
-        .note-content h2 { font-size: 1.6rem; border-bottom: 1px solid var(--border); padding-bottom: 8px; }
-        .note-content h3 { font-size: 1.3rem; }
-        .note-content h4 { font-size: 1.1rem; }
-
-        .note-content p {
-            margin-bottom: 1em;
-        }
-
-        .note-content a {
-            color: var(--accent-light);
-            text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s ease;
-        }
-
-        .note-content a:hover {
-            border-bottom-color: var(--accent-light);
-        }
-
-        .note-content code {
-            background: var(--code-bg);
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: 'JetBrains Mono', 'Fira Code', monospace;
-            font-size: 0.9em;
-        }
-
-        .note-content pre {
-            background: var(--code-bg);
-            padding: 16px;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 1em 0;
-            border: 1px solid var(--border);
-        }
-
-        .note-content pre code {
-            background: none;
-            padding: 0;
-        }
-
-        .note-content blockquote {
-            border-left: 4px solid var(--blockquote-border);
-            padding-left: 20px;
-            margin: 1em 0;
-            color: var(--text-secondary);
-            font-style: italic;
-            background: var(--bg-tertiary);
-            padding: 15px 20px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .note-content ul, .note-content ol {
-            margin: 1em 0;
-            padding-left: 2em;
-        }
-
-        .note-content li {
-            margin-bottom: 0.5em;
-        }
-
-        .note-content ul li::marker {
-            color: var(--accent-light);
-        }
-
-        .note-content hr {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 2em 0;
-        }
-
-        .note-content img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin: 1em 0;
-        }
-
-        .note-content table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1em 0;
-        }
-
-        .note-content th, .note-content td {
-            border: 1px solid var(--border);
-            padding: 10px 15px;
-            text-align: left;
-        }
-
-        .note-content th {
-            background: var(--bg-tertiary);
-            font-weight: 600;
-        }
-
-        /* Callouts */
-        .callout {
-            padding: 16px;
-            border-radius: 8px;
-            margin: 1em 0;
-            display: flex;
-            gap: 12px;
-            border-left: 4px solid;
-        }
-
-        .callout.info {
-            background: rgba(59, 130, 246, 0.1);
-            border-color: #3b82f6;
-        }
-
-        .callout.warning {
-            background: rgba(245, 158, 11, 0.1);
-            border-color: var(--warning);
-        }
-
-        .callout.success {
-            background: rgba(16, 185, 129, 0.1);
-            border-color: var(--success);
-        }
-
-        .callout.error {
-            background: rgba(239, 68, 68, 0.1);
-            border-color: var(--error);
-        }
-
-        .callout-icon {
-            font-size: 1.2rem;
-        }
-
-        .callout.info .callout-icon { color: #3b82f6; }
-        .callout.warning .callout-icon { color: var(--warning); }
-        .callout.success .callout-icon { color: var(--success); }
-        .callout.error .callout-icon { color: var(--error); }
-
-        /* Empty State */
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-        }
-
-        .empty-state i {
-            font-size: 4rem;
-            color: var(--accent-glow);
+            letter-spacing: 0.1em;
+            color: #555;
             margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #1a1a1a;
         }
-
-        .empty-state h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--text-primary);
+        .article-list { list-style: none; }
+        .article-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #1a1a1a;
+            transition: background 0.2s ease;
         }
-
-        .empty-state p {
-            color: var(--text-muted);
+        .article-item:hover {
+            background: #111;
+            margin: 0 -20px;
+            padding-left: 20px;
+            padding-right: 20px;
         }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-
-            .sidebar.open {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-            }
-
-            .mobile-toggle {
-                display: block !important;
-            }
-        }
-
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-primary);
+        .article-item:last-child { border-bottom: none; }
+        .article-title {
             font-size: 1.2rem;
-            cursor: pointer;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
         }
-
-        /* Graph View Button */
-        .graph-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--accent);
-            border: none;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: 0 4px 20px var(--accent-glow);
-            transition: all 0.3s ease;
+        .article-title:hover { color: #8b5cf6; }
+        .article-meta { font-size: 0.85rem; color: #555; }
+        .article-desc { color: #888; font-size: 0.9rem; margin-top: 8px; }
+        .featured {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #2a2a3a;
         }
-
-        .graph-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 30px var(--accent-glow);
+        .featured .article-title { font-size: 1.4rem; }
+        .tag {
+            display: inline-block;
+            background: #8b5cf6;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #1a1a1a;
+            color: #444;
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <div class="vault-name">
-                <i class="fas fa-book-sparkles"></i>
-                <span>San Vault</span>
+    <div class="container">
+        <p class="back"><a href="../index.html">Back</a></p>
+        <h1>Notes</h1>
+        <p class="tagline">Publications & Documentation</p>
+
+        <section class="section">
+            <h2 class="section-title">Featured</h2>
+            <div class="featured">
+                <a href="../proposal.html" class="article-title">Build Your Product <span class="tag">NEW</span></a>
+                <p class="article-meta">February 13, 2026</p>
+                <p class="article-desc">A 15-day challenge to build, ship, and launch real products.</p>
             </div>
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <input type="text" placeholder="Search notes..." id="searchInput">
-            </div>
-        </div>
-        
-        <nav class="sidebar-nav">
-            <div class="nav-section">
-                <div class="nav-section-title">Quick Access</div>
-                <div class="nav-item active" onclick="loadNote('welcome')">
-                    <i class="fas fa-home"></i>
-                    <span class="note-title">Welcome</span>
-                </div>
-                <div class="nav-item" onclick="loadNote('today')">
-                    <i class="fas fa-calendar-day"></i>
-                    <span class="note-title">Today</span>
-                </div>
-                <div class="nav-item" onclick="window.location.href='../index.html'">
-                    <i class="fas fa-arrow-left"></i>
-                    <span class="note-title">Back to Home</span>
-                </div>
-            </div>
+        </section>
 
-            <div class="nav-section">
-                <div class="nav-section-title">Notes</div>
-                <div id="notesList">
-                    <div class="nav-item" onclick="loadNote('setup-guide')">
-                        <i class="fas fa-file-lines"></i>
-                        <span class="note-title">Setup Guide</span>
-                    </div>
-                    <div class="nav-item" onclick="loadNote('api-keys')">
-                        <i class="fas fa-key"></i>
-                        <span class="note-title">API Keys</span>
-                    </div>
-                    <div class="nav-item" onclick="loadNote('todos')">
-                        <i class="fas fa-list-check"></i>
-                        <span class="note-title">TODOs</span>
-                    </div>
-                    <div class="nav-item" onclick="loadNote('ideas')">
-                        <i class="fas fa-lightbulb"></i>
-                        <span class="note-title">Ideas</span>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <section class="section">
+            <h2 class="section-title">Recent</h2>
+            <ul class="article-list">
+                <li class="article-item">
+                    <a href="today.html" class="article-title">Today - February 13, 2026</a>
+                    <p class="article-meta">Daily Log</p>
+                </li>
+                <li class="article-item">
+                    <a href="todos.html" class="article-title">TODOs</a>
+                    <p class="article-meta">Tasks & Priorities</p>
+                </li>
+                <li class="article-item">
+                    <a href="ideas.html" class="article-title">Ideas</a>
+                    <p class="article-meta">Future Possibilities</p>
+                </li>
+            </ul>
+        </section>
 
-        <div class="sidebar-footer">
-            <span style="color: var(--text-muted); font-size: 0.8rem;">
-                <i class="fas fa-code-branch"></i> 4 notes
-            </span>
-            <button class="theme-toggle" onclick="toggleTheme()">
-                <i class="fas fa-moon" id="themeIcon"></i>
-            </button>
-        </div>
-    </aside>
+        <section class="section">
+            <h2 class="section-title">All Publications</h2>
+            <ul class="article-list">
+                <li class="article-item">
+                    <a href="setup-guide.md" class="article-title">Setup Guide</a>
+                    <p class="article-meta">February 13, 2026</p>
+                    <p class="article-desc">Configuration and setup documentation</p>
+                </li>
+                <li class="article-item">
+                    <a href="api-keys.md" class="article-title">API Keys</a>
+                    <p class="article-meta">February 13, 2026</p>
+                    <p class="article-desc">Service credentials reference</p>
+                </li>
+                <li class="article-item">
+                    <a href="build-your-product-challenge.md" class="article-title">Build Your Product - Full Plan</a>
+                    <p class="article-meta">February 13, 2026</p>
+                    <p class="article-desc">Detailed 15-day challenge documentation</p>
+                </li>
+                <li class="article-item">
+                    <a href="build-your-product-quickstart.md" class="article-title">Build Your Product - Quick Start</a>
+                    <p class="article-meta">February 13, 2026</p>
+                    <p class="article-desc">One-page quick reference</p>
+                </li>
+            </ul>
+        </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <header class="topbar">
-            <div class="breadcrumb">
-                <button class="mobile-toggle" onclick="toggleSidebar()">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <a href="../index.html">Home</a>
-                <i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i>
-                <span>Notes</span>
-            </div>
-            <div class="topbar-actions">
-                <button class="action-btn" onclick="shareNote()">
-                    <i class="fas fa-share-nodes"></i> Share
-                </button>
-                <button class="action-btn primary" onclick="createNote()">
-                    <i class="fas fa-plus"></i> New Note
-                </button>
-            </div>
-        </header>
-
-        <div class="note-container">
-            <div class="note-wrapper" id="noteContent">
-                <!-- Welcome Note -->
-                <div class="note-header">
-                    <h1 class="note-title">Welcome to San Notes</h1>
-                    <div class="note-meta">
-                        <span><i class="fas fa-calendar"></i> Feb 13, 2026</span>
-                        <span><i class="fas fa-clock"></i> 5:45 AM</span>
-                        <span><i class="fas fa-eye"></i> 1 view</span>
-                    </div>
-                    <div class="note-tags">
-                        <span class="tag">welcome</span>
-                        <span class="tag">guide</span>
-                    </div>
-                </div>
-
-                <div class="note-content">
-                    <p>Welcome to your personal knowledge vault! This is an Obsidian-inspired note-taking system.</p>
-
-                    <h2>✨ Features</h2>
-                    <ul>
-                        <li><strong>Beautiful UI</strong> — Obsidian-like dark theme</li>
-                        <li><strong>Markdown Support</strong> — Write in markdown, render beautifully</li>
-                        <li><strong>Quick Navigation</strong> — Sidebar with all your notes</li>
-                        <li><strong>Search</strong> — Find notes instantly</li>
-                        <li><strong>Share</strong> — Easy sharing via GitHub Pages</li>
-                    </ul>
-
-                    <h2>🚀 How to Add Notes</h2>
-                    <p>Just ask me (OpenClaw) to write a note, and I'll:</p>
-                    <ol>
-                        <li>Create the markdown file</li>
-                        <li>Add it to the navigation</li>
-                        <li>Push to GitHub</li>
-                        <li>It appears here automatically!</li>
-                    </ol>
-
-                    <div class="callout info">
-                        <i class="fas fa-info-circle callout-icon"></i>
-                        <div>
-                            <strong>Tip:</strong> All notes are stored as markdown files in the <code>notes/</code> folder. You can edit them directly or ask me to update them.
-                        </div>
-                    </div>
-
-                    <h2>📝 Example Note</h2>
-                    <p>Here's some sample content to show markdown rendering:</p>
-
-                    <blockquote>
-                        "The best way to predict the future is to create it." — Peter Drucker
-                    </blockquote>
-
-                    <h3>Code Example</h3>
-                    <pre><code>// Initialize the vault
-const vault = new NoteVault({
-    theme: 'obsidian-dark',
-    autoSave: true
-});</code></pre>
-
-                    <h3>Table Example</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Feature</th>
-                                <th>Status</th>
-                                <th>Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Dark Theme</td>
-                                <td>✅</td>
-                                <td>Obsidian-inspired</td>
-                            </tr>
-                            <tr>
-                                <td>Markdown</td>
-                                <td>✅</td>
-                                <td>Full support</td>
-                            </tr>
-                            <tr>
-                                <td>Search</td>
-                                <td>🔄</td>
-                                <td>Coming soon</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <hr>
-
-                    <p><em>Happy note-taking! 📚</em></p>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <button class="graph-btn" title="Graph View">
-        <i class="fas fa-diagram-project"></i>
-    </button>
-
-    <script>
-        // Theme Toggle
-        function toggleTheme() {
-            const html = document.documentElement;
-            const icon = document.getElementById('themeIcon');
-            
-            if (html.getAttribute('data-theme') === 'dark') {
-                html.setAttribute('data-theme', 'light');
-                icon.className = 'fas fa-sun';
-            } else {
-                html.setAttribute('data-theme', 'dark');
-                icon.className = 'fas fa-moon';
-            }
-        }
-
-        // Sidebar Toggle (Mobile)
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('open');
-        }
-
-        // Load Note (placeholder for dynamic loading)
-        function loadNote(noteId) {
-            // Remove active class from all nav items
-            document.querySelectorAll('.nav-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            event.currentTarget.classList.add('active');
-            
-            // In a real implementation, this would load the markdown file
-            console.log('Loading note:', noteId);
-        }
-
-        // Share Note
-        function shareNote() {
-            const url = window.location.href;
-            navigator.clipboard.writeText(url).then(() => {
-                alert('Link copied to clipboard!');
-            });
-        }
-
-        // Create Note
-        function createNote() {
-            alert('Ask OpenClaw to create a new note!\n\nSay: "Create a note about [topic]"');
-        }
-
-        // Search
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            document.querySelectorAll('#notesList .nav-item').forEach(item => {
-                const title = item.querySelector('.note-title').textContent.toLowerCase();
-                item.style.display = title.includes(query) ? 'flex' : 'none';
-            });
-        });
-    </script>
+        <footer>
+            <p>2026</p>
+        </footer>
+    </div>
 </body>
 </html>
