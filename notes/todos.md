@@ -4,7 +4,19 @@ Current tasks and priorities.
 
 ---
 
-## 🔥 High Priority
+## 🔥 **This Week (Feb 10-15)**
+
+### Petition & Launch
+- [ ] Draft petition for Build Your Product challenge
+- [ ] Get petition approved by college
+- [ ] Create event poster
+- [ ] Post announcements on all channels
+- [ ] Open registration form
+- [ ] Create Discord/WhatsApp for participants
+
+---
+
+## 📋 **High Priority**
 
 - [ ] Test GLM-5 reasoning capabilities
 - [ ] Enable GitHub Pages for this repo
@@ -12,7 +24,7 @@ Current tasks and priorities.
 
 ---
 
-## 📋 Medium Priority
+## 💡 **Medium Priority**
 
 - [ ] Create note templates
 - [ ] Add graph view for notes
@@ -20,16 +32,7 @@ Current tasks and priorities.
 
 ---
 
-## 💡 Low Priority
-
-- [ ] Explore Lightning AI for GPU workloads
-- [ ] Set up Obsidian sync
-- [ ] Create custom themes
-- [ ] Add keyboard shortcuts
-
----
-
-## ✅ Completed
+## ✅ **Completed**
 
 - [x] Switch to Modal GLM-5 as primary model
 - [x] Set up Serper search script
@@ -37,15 +40,16 @@ Current tasks and priorities.
 - [x] Set up GitHub Codespaces for browser
 - [x] Install Playwright in Codespaces
 - [x] Create Obsidian-style notes system
+- [x] Plan Build Your Product challenge
 
 ---
 
 ## 📊 Progress
 
 ```
-Completed: 6 tasks
-Remaining: 6 tasks
-Progress:  50% ██████████░░░░░░░░░░
+Completed:  7 tasks
+In Progress: 6 tasks
+Progress:   54% ███████████░░░░░░░░░
 ```
 
 ---
